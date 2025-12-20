@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <strong>My Photography</strong>
+  <div>
+    <a href="index.html">Profile</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section>
+  <div class="card">
+    <h1>Gallery</h1>
+    <p>Upload your photos and preview them instantly.</p>
+
+    <input type="file" accept="image/*" multiple
+      onchange="loadImages(event)">
+
+    <div class="gallery-grid" id="gallery"></div>
+  </div>
+</section>
+
+<script>
+function loadImages(event){
+  const gallery = document.getElementById("gallery");
+  for(let file of event.target.files){
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    gallery.appendChild(img);
+  }
+}
+</script>
+
+</body>
+</html>
